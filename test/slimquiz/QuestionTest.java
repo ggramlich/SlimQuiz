@@ -28,18 +28,18 @@ public class QuestionTest {
 	}
 
 	@Test
-	public void testIsCorrectWithoutOptions() throws Exception {
+	public void testIsApplicableWithoutOptions() throws Exception {
 		assertThat(question.isApplicable("Yes"), is(false));
 	}
 
 	@Test
-	public void testAddCorrectOption() throws Exception {
+	public void testAddApplicableOption() throws Exception {
 		question.addOption("Yes", true);
 		assertThat(question.isApplicable("Yes"), is(true));
 	}
 
 	@Test
-	public void testAddIncorrectOption() throws Exception {
+	public void testAddNonApplicableOption() throws Exception {
 		question.addOption("No", false);
 		assertThat(question.isApplicable("No"), is(false));
 	}
@@ -71,7 +71,7 @@ public class QuestionTest {
 	}
 
 	@Test
-	public void testIsInValidWhenForcedUniqueAndNoCorrectOption()
+	public void testIsInValidWhenEnforcedUniqueAndNoApplicableOption()
 			throws Exception {
 		question.enforceUniqueAnswer(true);
 		assertThat(question.isValid(), is(false));
@@ -82,7 +82,7 @@ public class QuestionTest {
 	}
 
 	@Test
-	public void testIsInValidWhenForcedUniqueAndTwoOrMoreCorrectOptions()
+	public void testIsInValidWhenEnforcedUniqueAndTwoOrMoreApplicableOptions()
 			throws Exception {
 		question.enforceUniqueAnswer(true);
 		question.addOption("Yes", true);
@@ -92,7 +92,7 @@ public class QuestionTest {
 	}
 
 	@Test
-	public void testIsValidWhenForceUniqueQuestionAndOneCorrectOption()
+	public void testIsValidWhenEnforcedUniqueQuestionAndOneApplicableOption()
 			throws Exception {
 		question.enforceUniqueAnswer(true);
 		question.addOption("Yes", true);

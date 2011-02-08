@@ -1,0 +1,52 @@
+!contents -R2 -g -p -f -h
+
+!define TEST_SYSTEM {slim}
+!path bin
+
+
+!|import          |
+|slimquiz.fixtures|
+
+-!|script|create quiz|
+|create|use_slim|question|How do you tell FitNesse to use Slim?|
+|add   |false   |answer  |export TEST_SYSTEM="slim"            |
+|add   |false   |answer  |set_env "slim"                       |
+|add   |true    |answer  |!define TEST_SYSTEM {slim}           |
+|add   |false   |answer  |!use SLIM                            |
+|has unique answer                                             |
+
+-!|script|create quiz|
+|create|scenario_usage|question|In which tables can scenarios be used?|
+|add   |true          |answer  |Decision Table                        |
+|add   |false         |answer  |Query Table                           |
+|add   |true          |answer  |Script Table                          |
+|add   |false         |answer  |Table Table                           |
+|add   |false         |answer  |Scenario Table                        |
+
+
+When you run this page as a test, you can generate the table table wiki text for a single question. You can then simply copy and paste from here.
+
+!|table:quiz table generator|use_slim|
+
+Or you can generate the wiki text for all questions in the order of the question id.
+
+!|table:quiz table generator|
+
+Here are the sample quizzes. Try them.
+
+-!|table:solve quiz|scenario_usage|
+|In which tables can scenarios be used?|
+|[]           |Table Table             |
+|[]           |Script Table            |
+|[]           |Scenario Table          |
+|[]           |Query Table             |
+|[]           |Decision Table          |
+
+-!|table:solve quiz|use_slim|
+|How do you tell FitNesse to use Slim?|
+|()    |export TEST_SYSTEM="slim"     |
+|()    |!define TEST_SYSTEM {slim}    |
+|()    |!use SLIM                     |
+|()    |set_env "slim"                |
+
+

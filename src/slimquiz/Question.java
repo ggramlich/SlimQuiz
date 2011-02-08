@@ -28,8 +28,8 @@ public class Question {
 		return text;
 	}
 
-	public void addOption(String option, boolean applicable) {
-		options.put(option, new AnswerOption(option, applicable));
+	public void addOption(String answer, boolean applicable) {
+		options.put(answer, new AnswerOption(answer, applicable));
 	}
 
 	public boolean isApplicable(String option) {
