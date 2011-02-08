@@ -32,21 +32,3 @@ Or you can generate the wiki text for all questions in the order of the question
 
 !|table:quiz table generator|
 
-Here are the sample quizzes. Try them.
-
--!|table:solve quiz|scenario_usage|
-|In which tables can scenarios be used?|
-|[]           |Table Table             |
-|[]           |Script Table            |
-|[]           |Scenario Table          |
-|[]           |Query Table             |
-|[]           |Decision Table          |
-
--!|table:solve quiz|use_slim|
-|How do you tell FitNesse to use Slim?|
-|()    |export TEST_SYSTEM="slim"     |
-|()    |!define TEST_SYSTEM {slim}    |
-|()    |!use SLIM                     |
-|()    |set_env "slim"                |
-
-
