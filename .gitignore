@@ -1,0 +1,10 @@
+*~
+Thumbs.db
+/bin
+/FitNesseRoot/ErrorLogs
+/FitNesseRoot/RecentChanges
+/FitNesseRoot/files/images/FitNesseInstallerLogo.png
+/FitNesseRoot/files/images/*.psd
+/FitNesseRoot/files/testResults
+
+
