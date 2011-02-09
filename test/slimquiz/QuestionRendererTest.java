@@ -38,8 +38,8 @@ public class QuestionRendererTest {
 
 	@Test
 	public void testRenderOption() throws Exception {
-		assertThat(renderer.renderOption(option1, false), is("|[]|Yes|"));
-		assertThat(renderer.renderOption(option1, true), is("|()|Yes|"));
+		assertThat(renderer.renderOption(option1, false), is("|[ ]|Yes|"));
+		assertThat(renderer.renderOption(option1, true), is("|( )|Yes|"));
 	}
 
 	@Test

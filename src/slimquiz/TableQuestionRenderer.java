@@ -2,8 +2,8 @@ package slimquiz;
 
 public class TableQuestionRenderer implements QuestionRenderer {
 
-	private static final String CHECKBOX_OPTION = "|[]|%s|";
-	private static final String RADIO_OPTION = "|()|%s|";
+	private static final String CHECKBOX_OPTION = "|[ ]|%s|";
+	private static final String RADIO_OPTION = "|( )|%s|";
 	private static final String HEADER = "-!|table:solve quiz|%s|";
 	protected final Question question;
 

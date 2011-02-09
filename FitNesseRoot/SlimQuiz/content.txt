@@ -4,16 +4,16 @@ Here are the sample quizzes. Try them.
 
 -!|table:solve quiz|use_slim|
 |How do you tell FitNesse to use Slim?|
-|()    |export TEST_SYSTEM="slim"     |
-|()    |!define TEST_SYSTEM {slim}    |
-|()    |!use SLIM                     |
-|()    |set_env "slim"                |
+|( )    |export TEST_SYSTEM="slim"    |
+|( )    |!define TEST_SYSTEM {slim}   |
+|( )    |!use SLIM                    |
+|( )    |set_env "slim"               |
 
 -!|table:solve quiz|scenario_usage|
 |In which tables can scenarios be used?|
-|[]           |Table Table             |
-|[]           |Script Table            |
-|[]           |Scenario Table          |
-|[]           |Query Table             |
-|[]           |Decision Table          |
+|[ ]          |Table Table             |
+|[ ]          |Script Table            |
+|[ ]          |Scenario Table          |
+|[ ]          |Query Table             |
+|[ ]          |Decision Table          |
 
