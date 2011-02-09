@@ -1,6 +1,6 @@
 package slimquiz.fixtures;
 
-import static slimquiz.fixtures.ListUtility.list;
+import static slimquiz.utilities.ListUtility.list;
 
 import java.util.List;
 
