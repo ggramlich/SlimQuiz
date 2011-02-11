@@ -56,7 +56,7 @@ public class SolveQuiz {
 		String header = getMarkForHeader(answerOptions) + question.text();
 		List<Object> resultTable = list(list(header));
 		for (AnswerOption answerOption : answerOptions) {
-			addMarkedRow(answerOption, resultTable);
+			resultTable.add(list(getMarkedCheckbox(answerOption)));
 		}
 		return resultTable;
 	}
@@ -71,11 +71,9 @@ public class SolveQuiz {
 		return PASS;
 	}
 
-	private void addMarkedRow(AnswerOption answerOption,
-			List<Object> resultTable) throws UnknownAnswerException {
-		String markedCheckbox = getMarkForAnswerOption(answerOption)
-								+ getCheckBox(answerOption);
-		resultTable.add(list(markedCheckbox));
+	private String getMarkedCheckbox(AnswerOption answerOption)
+			throws UnknownAnswerException {
+		return getMarkForAnswerOption(answerOption) + getCheckBox(answerOption);
 	}
 
 	private String getCheckBox(AnswerOption answerOption) {
