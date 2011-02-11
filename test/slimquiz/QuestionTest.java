@@ -2,6 +2,7 @@ package slimquiz;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -59,6 +60,15 @@ public class QuestionTest {
 	}
 
 	@Test
+	public void testHasApplicableOption() throws Exception {
+		assertThat(question.hasApplicableOption(), is(false));
+		question.addOption("No", false);
+		assertThat(question.hasApplicableOption(), is(false));
+		question.addOption("Yes", true);
+		assertThat(question.hasApplicableOption(), is(true));
+	}
+
+	@Test
 	public void testHasUniqueAnswer() throws Exception {
 		assertThat(question.mustHaveUniqueAnswer(), is(false));
 		question.enforceUniqueAnswer(true);
@@ -77,7 +87,7 @@ public class QuestionTest {
 		assertThat(question.isValid(), is(false));
 		question.addOption("No", false);
 		assertThat(question.isValid(), is(false));
-		question.addOption("Njed", false);
+		question.addOption("Niet", false);
 		assertThat(question.isValid(), is(false));
 	}
 
@@ -97,7 +107,38 @@ public class QuestionTest {
 		question.enforceUniqueAnswer(true);
 		question.addOption("Yes", true);
 		assertThat(question.isValid(), is(true));
-		question.addOption("Njed", false);
+		question.addOption("Niet", false);
 		assertThat(question.isValid(), is(true));
+	}
+
+	@Test
+	public void testIsCorrectAnswer() throws Exception {
+		question.addOption("Yes", true);
+		question.addOption("No", false);
+		assertThat(question.isCorrectAnswer(new AnswerOption("Yes", true)),
+				is(true));
+		assertThat(question.isCorrectAnswer(new AnswerOption("No", false)),
+				is(true));
+	}
+
+	@Test
+	public void testIsCorrectAnswer_False() throws Exception {
+		question.addOption("Yes", true);
+		question.addOption("No", false);
+		assertThat(question.isCorrectAnswer(new AnswerOption("Yes", false)),
+				is(false));
+		assertThat(question.isCorrectAnswer(new AnswerOption("No", true)),
+				is(false));
+	}
+
+	@Test
+	public void testIsCorrectAnswer_ThrowsUnknownAnswerException()
+			throws Exception {
+		try {
+			question.isCorrectAnswer(new AnswerOption("Yes", true));
+			fail("UnknownAnswerException not thrown");
+		} catch (UnknownAnswerException e) {
+			assertThat(e.getMessage(), is("Yes"));
+		}
 	}
 }

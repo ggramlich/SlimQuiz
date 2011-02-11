@@ -6,5 +6,7 @@ Thumbs.db
 /FitNesseRoot/files/images/FitNesseInstallerLogo.png
 /FitNesseRoot/files/images/*.psd
 /FitNesseRoot/files/testResults
+userguide
+fitnesse.jar
 
 

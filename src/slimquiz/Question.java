@@ -63,4 +63,23 @@ public class Question {
 		return count;
 	}
 
+	public boolean isCorrectAnswer(AnswerOption answerOption)
+			throws UnknownAnswerException {
+		return getStoredOption(answerOption).isApplicable() == answerOption
+				.isApplicable();
+	}
+
+	private AnswerOption getStoredOption(AnswerOption answerOption)
+			throws UnknownAnswerException {
+		String answer = answerOption.getText();
+		if (options.containsKey(answer)) {
+			return options.get(answer);
+		}
+		throw new UnknownAnswerException(answer);
+	}
+
+	public boolean hasApplicableOption() {
+		return numberOfApplicableAnswers() > 0;
+	}
+
 }
