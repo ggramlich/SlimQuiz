@@ -1,0 +1,47 @@
+<project name="SlimQuiz" default="dist" basedir=".">
+	<description>
+		Build the SlimQuiz jar
+	</description>
+
+	<property name="src" location="src" />
+	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<javac srcdir="${src}" destdir="${build}" />
+	</target>
+
+	<target name="dist" depends="compile" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}/SlimQuiz/lib" />
+
+		<!-- Put everything in ${build} into the SlimQuiz.jar file -->
+		<jar jarfile="${dist}/SlimQuiz/lib/SlimQuiz.jar" basedir="${build}" />
+
+		<!-- Copy the FitNesse wiki -->
+		<copy todir="${dist}/SlimQuiz/FitNesseRoot">
+			<fileset dir="FitNesseRoot">
+				<exclude name="ErrorLogs" />
+				<exclude name="RecentChanges" />
+				<exclude name="files/images/FitNesseInstallerLogo.png" />
+				<exclude name="files/images/*.psd" />
+				<exclude name="testResults" />
+			</fileset>
+		</copy>
+		<!-- Create the zip file -->
+		<zip destfile="${dist}/SlimQuiz-${DSTAMP}.zip" basedir="${dist}" includes="SlimQuiz/**" />
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>

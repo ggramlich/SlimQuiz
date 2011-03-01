@@ -8,5 +8,6 @@ Thumbs.db
 /FitNesseRoot/files/testResults
 userguide
 fitnesse.jar
-
+build
+dist
 
