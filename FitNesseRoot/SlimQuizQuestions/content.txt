@@ -22,7 +22,7 @@
 |add   |false         |answer  |Query Table                           |
 |add   |true          |answer  |Script Table                          |
 |add   |false         |answer  |Table Table                           |
-|add   |false         |answer  |Scenario Table                        |
+|add   |true          |answer  |Scenario Table                        |
 
 
 When you run this page as a test, you can generate the table table wiki text for a single question. You can then simply copy and paste from here.
