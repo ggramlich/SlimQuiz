@@ -18,7 +18,7 @@
 		<javac srcdir="${src}" destdir="${build}" />
 	</target>
 
-	<target name="dist" depends="compile" description="generate the distribution">
+	<target name="dist" depends="clean, compile" description="generate the distribution">
 		<!-- Create the distribution directory -->
 		<mkdir dir="${dist}/SlimQuiz/lib" />
 
@@ -28,11 +28,11 @@
 		<!-- Copy the FitNesse wiki -->
 		<copy todir="${dist}/SlimQuiz/FitNesseRoot">
 			<fileset dir="FitNesseRoot">
-				<exclude name="ErrorLogs" />
-				<exclude name="RecentChanges" />
+				<exclude name="ErrorLogs/**" />
+				<exclude name="RecentChanges/**" />
 				<exclude name="files/images/FitNesseInstallerLogo.png" />
 				<exclude name="files/images/*.psd" />
-				<exclude name="testResults" />
+				<exclude name="files/testResults/**" />
 			</fileset>
 		</copy>
 		<!-- Create the zip file -->
