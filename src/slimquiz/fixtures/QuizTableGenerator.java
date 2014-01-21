@@ -7,7 +7,7 @@ import java.util.List;
 import slimquiz.Question;
 import slimquiz.QuestionRenderer;
 import slimquiz.QuizMaster;
-import slimquiz.TableLineBreakQuestionRenderer;
+import slimquiz.TableQuestionRenderer;
 
 public class QuizTableGenerator {
 
@@ -40,13 +40,13 @@ public class QuizTableGenerator {
 		StringBuffer buffer = new StringBuffer();
 		for (Question question : QuizMaster.INSTANCE.getQuestions()) {
 			buffer.append(renderQuestion(question));
-			buffer.append("<br/>\n<br/>\n");
+			buffer.append("\n\n");
 		}
 		return buffer.toString();
 	}
 
 	private String renderQuestion(Question question) {
-		QuestionRenderer renderer = new TableLineBreakQuestionRenderer(question);
+		QuestionRenderer renderer = new TableQuestionRenderer(question);
 		return renderer.render();
 	}
 

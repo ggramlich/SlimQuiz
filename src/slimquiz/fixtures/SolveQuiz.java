@@ -98,7 +98,7 @@ public class SolveQuiz {
 	}
 
 	private List<Object> noOptionSelectedHint() {
-		return list(list(IGNORE + question.text() + "<br />\n<br />\n"
+		return list(list(IGNORE + "\n"
 				+ getHint()));
 	}
 
@@ -123,7 +123,7 @@ public class SolveQuiz {
 
 	private List<Object> errorResult(String message) {
 		return list(list(ERROR + message
-				+ "<br />\nDid you change the template?"));
+				+ "\nDid you change the template?"));
 	}
 
 }
